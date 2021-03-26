@@ -27,6 +27,6 @@ const List comingSoonJson = [
         "A notorious gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost.",
     "type": "Violence, Sex, Nudity, Language, Substances",
     "date": "2021 June",
-    "duration": false
+    "duration": true
   }
 ];
