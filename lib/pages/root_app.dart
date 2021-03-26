@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_prabhu/json/root_app_json.dart';
 import 'package:netflix_prabhu/pages/coming_soon_page.dart';
+import 'package:netflix_prabhu/pages/downloads_page.dart';
 import 'package:netflix_prabhu/pages/home_page.dart';
 import 'package:netflix_prabhu/pages/search_page.dart';
 
@@ -59,15 +60,7 @@ class _RootAppState extends State<RootApp> {
         HomePage(),
         ComingsoonPage(),
         SearchPage(),
-        Center(
-          child: Text(
-            'Downloads',
-            style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white
-            ),
-          ),
-        ),
+        DownloadsPage()
       ],
     );
   }
