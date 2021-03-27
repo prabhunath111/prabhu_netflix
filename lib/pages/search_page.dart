@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_prabhu/json/search_json.dart';
+import 'package:netflix_prabhu/pages/video_detail_page.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -60,51 +61,55 @@ class _SearchPageState extends State<SearchPage> {
             Column(
               children: List.generate(searchJson.length, (index) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom:10.0),
+                  padding: const EdgeInsets.only(bottom: 10.0),
                   child: Row(
                     children: [
-                      Container(
-                        width: (size.width - 36) * 0.8,
-                        height: 80,
-                        child: Row(
-                          children: [
-                            Stack(
-                              children: [
-                                Container(
-                                  width: 120,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        searchJson[index]['img'],
-                                      ),
-                                      fit: BoxFit.cover
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=> VideoDetailPage(
+                            videoUrl: 'assets/videos/video_1.mp4',
+                          )));
+                        },
+                        child: Container(
+                          width: (size.width - 36) * 0.8,
+                          height: 80,
+                          child: Row(
+                            children: [
+                              Stack(
+                                children: [
+                                  Container(
+                                    width: 120,
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                            searchJson[index]['img'],
+                                          ),
+                                          fit: BoxFit.cover),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.2)
+                                  Container(
+                                    width: 120,
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                        color: Colors.black.withOpacity(0.2)),
                                   ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(width: 10),
-                            Container(
-                              width: (size.width - 36) * 0.30,
-                              child: Text(
-                                searchJson[index]['title'],
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white
-                                ),
+                                ],
                               ),
-                            )
-                          ],
+                              SizedBox(width: 10),
+                              Container(
+                                width: (size.width - 36) * 0.30,
+                                child: Text(
+                                  searchJson[index]['title'],
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -112,16 +117,16 @@ class _SearchPageState extends State<SearchPage> {
                         height: 80,
                         child: Container(
                           width: 25,
-                            height: 25,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width: 2,
-                                color: Colors.white
-                              ),
-                            ),
+                          height: 25,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 2, color: Colors.white),
+                          ),
                           child: Center(
-                            child: Icon(Icons.play_arrow, color: Colors.white,),
+                            child: Icon(
+                              Icons.play_arrow,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
